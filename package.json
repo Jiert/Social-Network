@@ -1,10 +1,10 @@
 {
-  "name" : "Jiert's Social Network",
+  "name" : "social-network",
   "version" : "0.0.1",
   "private" : true,
   "dependencies" : {
-    "express" : "~3.0.0",
+    "express" : "4.0.0",
     "jade" : ">= 0.0.1",
-    "mongoose" : ">= 2.6.5"
+    "mongoose" : "1.3.23"
   }
 }
