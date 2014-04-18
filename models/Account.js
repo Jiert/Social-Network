@@ -41,7 +41,8 @@ module.exports = function(config, mongoose, nodemailer) {
       if (err) {
         // Email address is not a valid user
         callback(false);
-      } else {
+      } 
+      else {
         var smtpTransport = nodemailer.createTransport('SMTP', config.mail);
         resetPasswordUrl += '?account=' + doc._id;
         smtpTransport.sendMail({
@@ -64,7 +65,7 @@ module.exports = function(config, mongoose, nodemailer) {
     var shaSum = crypto.createHash('sha256');
     shaSum.update(password);
     Account.findOne({email:email,password:shaSum.digest('hex')},function(err,doc){
-      callback(null!=doc);
+      callback(doc !== null);
     });
   };
 
