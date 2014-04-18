@@ -66,6 +66,19 @@ app.post('/forgotpassword', function(req, res){
 
 });
 
+app.get('/resetPassword', function(req, res){
+  var accountId = req.param('account', null);
+  res.render('resetPassword.jade', { locals:{ accountdId: accountId } });
+});
+
+app.post('/resetPassword', function(req, res){
+  var accountId = req.param('accountId', null);
+  var password = req.param('password', null);
+  if (accountId !== null && password !== null){
+    Account.changeePassword(accountId, password);
+  }
+  res.render('resetPasswordSuccess.jade');
+});
 
 app.get('/', function(req, res){
   res.render('index.jade', { layout: false });
